@@ -1,0 +1,11 @@
+body{
+    background-color: lightblue;
+}
+
+#header{
+    background-color: lightskyblue;
+}
+
+input[type=text], select {
+    width: 80%;
+  }
