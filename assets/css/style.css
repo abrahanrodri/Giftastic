@@ -10,6 +10,10 @@ input[type=text], select {
     width: 80%;
   }
 
-  div.b {
+  div.butt {
     margin-left: 30px;
+  }
+
+.btn-primary{
+    color: black;
   }
