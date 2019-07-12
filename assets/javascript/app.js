@@ -9,11 +9,11 @@ var topics = ["cat",
 "dolphin",
 "bear"];
 
-function displayGifs() {
+function showGifs() {
     var animal = $(this).attr("data-name");
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      animal + "&api_key=TcbGhYWRBlW2REvL6nD4Co0xKVOoIHZN&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" 
+    + animal + "&api_key=TcbGhYWRBlW2REvL6nD4Co0xKVOoIHZN&q=&limit=10&offset=0&rating=PG-13&lang=en";
 
     $.ajax({
       url: queryURL,
@@ -21,7 +21,7 @@ function displayGifs() {
     }).done(function(response) {
         console.log(queryURL);
 
-        console.log(response);
+        console.log(response.data);
         var addedTopics = response.data;
 
         for (var i = 0; i < addedTopics.length; i++) {
@@ -44,9 +44,28 @@ function displayGifs() {
     });
 };
 
-  $(document).on("click", "#topics", display_topics);
+function createButtons() {
+    $("#buttonsTopics").empty();
+    for (var i = 0; i < topics.length; i++) {
+        var addedButton = $("<button>");
+        addedButton.addClass("btn btn-primary");
+        addedButton.attr("data-name", topics[i]);
+        addedButton.text(topics[i]);
+        $("#buttonsTopics").append(addedButton);
+    };
+}
 
-$(".gif").on("click", function() {
+$("#animalSearch").on("click", function(event) {
+    event.preventDefault();
+    var gifs = $("#animalSubmit").val().trim();
+    topics.push(gifs);
+    createButtons();
+});
+
+  $(document).on("click", showGifs);
+  createButtons();
+
+$(document).on("click", "img", function() {
   
     var state = $(this).attr("data-state");
     
