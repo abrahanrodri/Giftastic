@@ -9,6 +9,11 @@ var topics = ["cat",
 "bear"];
 var addedTopics = "";
 
+var pageButtons = $('#buttonsTopics');
+for (var i = 0; i < topics.length; i++) {
+  pageButtons.append('<input type="button" class="btn btn-primary" id="buttonTopics' + i + '" value="' + topics[i] + '"/>');
+}
+
 $("button").on("click", function() {
     // Grabbing and storing the data-animal property value from the button
     var animal = $(this).attr("data-animal");
