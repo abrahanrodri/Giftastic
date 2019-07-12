@@ -1,3 +1,4 @@
+
 var topics = ["cat", 
 "penguin", 
 "panda",
@@ -7,49 +8,43 @@ var topics = ["cat",
 "rabbit",
 "dolphin",
 "bear"];
-var addedTopics = "";
 
-var pageButtons = $('#buttonsTopics');
-for (var i = 0; i < topics.length; i++) {
-  pageButtons.append('<input type="button" class="btn btn-primary" id="buttonTopics' + i + '" value="' + topics[i] + '"/>');
-}
-
-$("button").on("click", function() {
-    // Grabbing and storing the data-animal property value from the button
-    var animal = $(this).attr("data-animal");
+function displayGifs() {
+    var animal = $(this).attr("data-name");
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      animal + "TcbGhYWRBlW2REvL6nD4Co0xKVOoIHZN";
+      animal + "&api_key=TcbGhYWRBlW2REvL6nD4Co0xKVOoIHZN&limit=10";
 
     $.ajax({
       url: queryURL,
       method: "GET"
-    })
-      .then(function(response) {
+    }).done(function(response) {
         console.log(queryURL);
 
         console.log(response);
-        var results = response.data;
+        var addedTopics = response.data;
 
-        for (var i = 0; i < results.length; i++) {
+        for (var i = 0; i < addedTopics.length; i++) {
 
-          var animalDiv = $("<div>");
+          var topicsDiv = $("<div>");
 
-          var p = $("<p>").text("Rating: " + results[i].rating);
+          var p = $("<p>").text("Rating: " + addedTopics[i].rating);
 
           var animalImage = $("<img>");
           
-          animalImage.attr("src", results[i].images.fixed_height.url);
-
+          animalImage.attr("src", addedTopics[i].images.fixed_height.url);
+          animalImage.attr("data-still", addedTopics[i].images.fixed_height_still.url);
+     	  animalImage.attr("data-animate", addedTopics[i].images.fixed_height.url);
+     	  animalImage.attr("data-state", "still");
          
-          animalDiv.append(p);
-          animalDiv.append(animalImage);
+          topicslDiv.append(p);
+          topicsDiv.append(animalImage);
+          $("#tenGifs").prepend(topicsDiv);
+        };
+    });
+};
 
-         
-          $("#gifs-appear-here").prepend(animalDiv);
-        }
-      });
-  });
+  $(document).on("click", "#topics", display_topics);
 
 $(".gif").on("click", function() {
   
