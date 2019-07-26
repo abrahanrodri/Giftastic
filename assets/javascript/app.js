@@ -1,67 +1,42 @@
 
-var animals = ["cat", 
-"penguin", 
-"panda",
-"turtle",
-"dog",
-"frog",
-"rabbit",
-"dolphin",
-"bear"];
+ var animals = ["penguin", "dog", "cat", "tiger", "falcon", "eagle", "hamster"];
 
 
-$(document).ready(function() {
+ function renderButtons() {
 
-  function showButtons() {
-
-    for (var i = 0; i < animals.length; i++) {
-      var newAnimals = $("<button>");
-      newAnimals.addClass("btn btn-primary");
-      newAnimals.attr("data-name", animals[i]);
-      newAnimals.append(animals[i]);
-      $("button").append(newAnimals);
-
-      
-    }
-  }
- 
   
-  showButtons();
-  showGifs();
+   $("#buttons-view").empty();
 
-function showGifs(animal) {
+
+   for (var i = 0; i < animals.length; i++) {
+
+     
+     var a = $("<button>");
+  
+     a.addClass("animal");
     
-  var animal = $(this).attr("data-name");
+     a.attr("data-name", animals[i]);
+    
+     a.text(animals[i]);
+     
+     $("#buttons-view").append(a);
+     
+   }
+ }
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" 
-    + animal + "&api_key=TcbGhYWRBlW2REvL6nD4Co0xKVOoIHZN&q=&limit=10&offset=0&rating=PG-13&lang=en";
+ 
+ $("#add-animal").on("click", function(event) {
+  
+   event.preventDefault();
 
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).done(function(response) {
-         var results = response.data;
+ 
+   var animal = $("#animal-input").val().trim();
 
-            for (var i = 0; i < results.length; i++) {
+   animals.push(animal);
 
-                var gifDiv = $('.gifs');
+   
+   renderButtons();
+ });
 
-                var gifShow = $('<img>');
-
-                gifShow.attr('src', results[i].images.fixed_height_still.url);
-                gifShow.attr('title', "Rating: " + results[i].rating);
-                gifShow.attr('data-still', results[i].images.fixed_height_still.url);
-                gifShow.attr('data-state', 'still');
-                gifShow.addClass('gif');
-                gifShow.attr('data-animate', results[i].images.fixed_height.url);
-                gifDiv.append(gifShow);
-                $(".gifs").append(gifDiv);
-            }
-
-        });
-    }
-        
-
-    });
-
-
+ 
+ renderButtons();

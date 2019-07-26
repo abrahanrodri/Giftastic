@@ -1,52 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Giftastic</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/style/css.css">
 </head>
-
 <body>
-        <div class="jumbotron jumbotron-fluid rounded">
-        <div class="container">
-                
-            <h1 class="display-4 text-center"><b>Giftastic Animals</b></h1>
-        </div>
+  <div class="container">
+    <h1>Giftastic!</h1>
+
+    <div>
+      <h3>Search animals</h3>
+    <div id="buttons-view"></div>
     </div>
 
-    <div class="row">
-        <div class= "butt" id="buttonsTopics"></div>
-    </div>
+    <form id="movie-form">
+      <label for="movie-input">Add an animal!</label>
+      <input type="text" id="animal-input"><br>
+      <input id="add-animal" type="submit" value="Search animal">
+    </form>
 
-
-    <div class="row">
-
-        <div class="col-md-9">
-            <div id="tenGifs"></div>
-        </div>
-
-        <div class="col-md-3">
-            <form>
-                <div class="form-group">
-                    <label for="Search1"><h2><b>Add an Animal</b></h2></label>
-                    <input type="text" class="form-control" id="animalSearch" placeholder="Enter animal">
-                    <input type="submit" class="btn btn-primary" id="animalSubmit">
-                </div>
-                
-            </form>
-        </div>
-
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="assets/javascript/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js">
+     
+    </script>
 </body>
-
 </html>

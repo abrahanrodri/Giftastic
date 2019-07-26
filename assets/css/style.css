@@ -1,19 +1,1 @@
-body{
-    background-color: lightblue;
-}
 
-#header{
-    background-color: lightskyblue;
-}
-
-input[type=text], select {
-    width: 80%;
-  }
-
-  div.butt {
-    margin-left: 30px;
-  }
-
-.btn-primary{
-    color: black;
-  }
