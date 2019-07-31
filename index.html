@@ -12,31 +12,44 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>Giftastic!</h1>
 
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Giftastic</h1>
+      <p class="lead">Click a button or search for a NEW animal then click the button for gifs of them!</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+    <div class="col-lg-9">
+    <div id="buttons-view"></div>
+    </div>
+    <div class="col-lg-3">
     <div>
       <h3>Search animals</h3>
-      
     </div>
-
     <form id="animal-form">
       <label for="animal-input">Add an animal!</label>
       <input type="text" id="animal-input"><br>
-      <input id="add-animal" type="submit" value="Search animal">
+      <input class="btn btn-primary" id="add-animal" type="submit" value="Search animal">
     </form>
+    </div>
 
- 
-        <div id="buttons-view"></div>
+  </div>
+
     
-   
-        <div class="tenGifs"></div>
-     
+    <div class=row>
+    <div class="col-lg-12">
+    <div class="tenGifs"></div>
+    </div>
+  </div>
+
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/app.js">
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
-    </script>
 </body>
 
 </html>
