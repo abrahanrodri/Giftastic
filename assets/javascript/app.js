@@ -36,8 +36,10 @@ function displayGifs() {
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
       rap + "&api_key=TcbGhYWRBlW2REvL6nD4Co0xKVOoIHZN&limit=10";
 
-  $.ajax({ url: queryURL, method: "GET" })
-  .done(function (response) {
+  $.ajax({ 
+    url: queryURL, 
+    method: "GET" 
+  }).done(function (response) {
 
       var results = response.data;
 
@@ -60,10 +62,10 @@ function displayGifs() {
 }
 
 $(document).on('click', '.gif', function () {
+  
   var state = $(this).attr('data-state');
 
   if (state === 'still') {
-
       $(this).attr('src', $(this).data('animate'));
       $(this).attr('data-state', 'animate');
   } else {
